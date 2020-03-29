@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: code_production
-  username: code
-  password: <%= ENV['CODE_DATABASE_PASSWORD'] %>
+  database: testguru_production
+  username: testguru
+  password: <%= ENV['TESTGURU_DATABASE_PASSWORD'] %>
