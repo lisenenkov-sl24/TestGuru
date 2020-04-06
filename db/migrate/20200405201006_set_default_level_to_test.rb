@@ -1,9 +1,5 @@
 class SetDefaultLevelToTest < ActiveRecord::Migration[5.2]
-  def up
-    change_column_default :tests, :level, 0
-  end
-
-  def down
-    change_column_default :tests, :level, :null
+  def change
+    change_column_default :tests, :level, from: nil, to: 0
   end
 end
