@@ -10,19 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_202925) do
+ActiveRecord::Schema.define(version: 2020_04_11_163055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.bigint "question_id", null: false
-    t.bigint "user_id", null: false
-    t.boolean "correct", null: false
+    t.boolean "correct", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "text", limit: 300, default: "", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -37,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_04_05_202925) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.bigint "test_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_results_on_test_id"
+    t.index ["user_id"], name: "index_results_on_user_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -55,7 +63,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_202925) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "answers", "users"
   add_foreign_key "questions", "tests"
+  add_foreign_key "results", "tests"
+  add_foreign_key "results", "users"
   add_foreign_key "tests", "categories"
 end
