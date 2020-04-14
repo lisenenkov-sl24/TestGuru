@@ -11,22 +11,22 @@ categories = Category.create([{ title: 'Math' }, { title: 'Programming' }, { tit
 users = User.create!([{ name: 'John' }, { name: 'Dick' }, { name: 'Mary' }])
 
 tests = Test.create!([
-  { title: 'Arithmetic', level: 0, category_id: categories[0].id },
-  { title: 'Ruby', level: 1, category_id: categories[1].id },
-  { title: 'Russian', level: 2, category_id: categories[2].id }
+  { title: 'Arithmetic', level: 0, category: categories[0], author: users[1] },
+  { title: 'Ruby', level: 1, category: categories[1], author: users[1] },
+  { title: 'Russian', level: 2, category: categories[2], author: users[1] }
 ])
 
 questions = Question.create!([
-  { body: '2 + 2 = ', test_id: tests[0].id },
-  { body: '4 + 2 = ', test_id: tests[0].id },
-  { body: '8 + 2 = ', test_id: tests[0].id }
+  { body: '2 + 2 = ', test: tests[0] },
+  { body: '4 + 2 = ', test: tests[0] },
+  { body: '8 + 2 = ', test: tests[0] }
 ])
 
 answers = Answer.create!([
-  { question_id: questions[0].id, text: '4', correct: true },
-  { question_id: questions[0].id, text: '5' },
-  { question_id: questions[1].id, text: '5' },
-  { question_id: questions[1].id, text: '6', correct: true },
-  { question_id: questions[2].id, text: '10', correct: true },
-  { question_id: questions[2].id, text: '11' }
+  { question: questions[0], text: '4', correct: true },
+  { question: questions[0], text: '5' },
+  { question: questions[1], text: '5' },
+  { question: questions[1], text: '6', correct: true },
+  { question: questions[2], text: '10', correct: true },
+  { question: questions[2], text: '11' }
 ])
