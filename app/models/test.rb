@@ -6,8 +6,10 @@ class Test < ApplicationRecord
   has_many :users, through: :results
 
   def self.names_by_category(category_name)
-    Category.find_by(title: category_name)&.
-      tests&.order(title: :desc)&.pluck(:title)
+    joins(:category).
+      where(categories: { title: category_name }).
+      order('tests.title desc').
+      pluck('tests.title')
   end
 
 end
