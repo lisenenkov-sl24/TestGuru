@@ -18,11 +18,13 @@ class Test < ApplicationRecord
                   end )
   end 
 
-  scope :names_by_category, -> (category_name) do
+  scope :by_category, -> (category_name) do
     joins(:category).
       where(categories: { title: category_name }).
       order('tests.title desc').
-      pluck('tests.title')
   end
 
+  def names_by_category
+    by_category.pluck('tests.title')
+  end
 end
