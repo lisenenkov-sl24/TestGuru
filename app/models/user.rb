@@ -5,9 +5,12 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   def tests_by_level(level)
-    processed_tests.
-    where(level: level).
-    distinct  
+    processed_tests
+      .where(level: level)
+      .distinct
   end
 
+  def to_s
+    name
+  end
 end
