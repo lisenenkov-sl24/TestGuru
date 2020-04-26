@@ -8,7 +8,7 @@ class Answer < ApplicationRecord
   private
 
   def check_answers_count
-    if question.answers.count > 3
+    if question && question.answers.count > 3
       errors.add(:base, "Answers count must be between 1 and 4")
     end
   end
