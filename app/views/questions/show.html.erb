@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p> 
+<h2>Тест <%= @test%></h2>
+<div><label>Текст вопроса </label><%= @question.body%></div>
+<%= link_to 'Удалить', test_question_path(@test, @question), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<h3>Ответы</h3>
+<% @question.answers.select(:text, :correct).each do |answer| %>
+  <div><% if(answer.correct) %>
+  <b><%= answer.text%></b>
+  <% else %>
+  <%= answer.text%>
+  <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'К списку', test_questions_path(@test)%>

@@ -1,0 +1,6 @@
+<%= tag.h2 "Вопросы #{@test}" %>
+<%= link_to 'Создать', new_test_question_path(@test) %>
+<br/>
+<% @questions.each do |question| %>
+  <div><%= link_to question.body, test_question_path(@test, question)%></div>
+<% end %>
