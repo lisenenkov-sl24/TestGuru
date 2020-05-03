@@ -11,5 +11,11 @@
 
   <body>
     <%= yield %>
+  <footer>
+    <hr/>
+    <%= current_year%>  <%= authors%><br/>
+    Проект <%= github_url 'lisenenkov-sl24', 'TestGuru'%><br/>
+    <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 'https://thinknetica.com/', target: "_blank" %>
+  </footer>
   </body>
 </html>

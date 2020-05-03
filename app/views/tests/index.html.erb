@@ -1,5 +1,3 @@
 <h2>Тесты</h2>
 <br/>
-<% @tests.each do |test| %>
-  <div><%= link_to test.title, test%></div>
-<% end %>
+<%= render @tests %>

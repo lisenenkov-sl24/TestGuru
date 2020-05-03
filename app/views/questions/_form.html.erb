@@ -1,6 +1,7 @@
-<%= form_with model: @question, url: test_questions_path(@test), local: true do |form| %>
-<% if @question.errors.any? %>
-Ошибки: <div><%= @question.errors.full_messages %></div>
+<h3><%= edit_header(question)%></h3>
+<%= form_with model: [test, question], local: true do |form| %>
+<% if question.errors.present? %>
+Ошибки: <div><%= question.errors.full_messages %></div>
 <% end %>
 <div>
 <%= form.label :body, 'Вопрос' %>
@@ -8,6 +9,7 @@
 </div>
 <%= form.fields_for :answers do |answer_form|%>
   <div>
+  <%= answer_form.hidden_field :id%>
   <%= answer_form.label :text, 'Ответ' %>
   <%= answer_form.text_field :text, size: 50 %>
   <%= answer_form.label :correct, 'Правильный' %>
@@ -16,3 +18,4 @@
 <% end %>
 <%= form.submit %>
 <% end %>
+<%= link_to 'К тесту', question.test%>

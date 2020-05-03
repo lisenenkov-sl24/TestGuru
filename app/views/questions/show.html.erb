@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p> 
-<h2>Тест <%= @test%></h2>
+<h2>Тест <%= @question.test%></h2>
 <div><label>Текст вопроса </label><%= @question.body%></div>
-<%= link_to 'Удалить', test_question_path(@test, @question), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <h3>Ответы</h3>
 <% @question.answers.select(:text, :correct).each do |answer| %>
@@ -12,5 +11,12 @@
   <% end %>
   </div>
 <% end %>
+<hr/>
+<div>
+<%= link_to 'Редактировать', edit_question_path(@question)%>
+</div>
+<div>
+<%= link_to 'Удалить', question_path(@question), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
 
-<%= link_to 'К списку', test_questions_path(@test)%>
+<%= link_to 'К вопросу', @question.test%>

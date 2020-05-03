@@ -1,15 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_test, only: [:new, :create]
+  before_action :find_question, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_question_not_found
-
-  def index
-    @questions = @test.questions.select(:id, :body)
-    respond_to do |format|
-      format.html {}
-      format.text { render plain: @questions.pluck(:body).join("\n") }
-    end
-  end
 
   def show
     respond_to do |format|
@@ -19,16 +11,30 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = Question.new(test: @test)
     @question.answers.push(Answer.new(correct: true))
     3.times {@question.answers.push(Answer.new)}
+  end
+
+  def edit
+    if(@question.answers.size < 4)
+      @question.answers.push(Answer.new)
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question.test
+    else
+      render :new
+    end
   end
 
   def create
     @question = Question.new(question_params)
     @question.test = @test
     if @question.save
-      redirect_to test_question_path(@test, @question), notice: 'Вопрос успешно создан'
+      redirect_to @test
     else
       render :new
     end
@@ -36,7 +42,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy()
-    redirect_to :test_questions
+    redirect_to @question.test
   end
   
   private
@@ -46,7 +52,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.select(:id, :body).includes(:answers).find(params[:id])
+    @question = Question.select(:id, :test_id, :body).find(params[:id])
   end
 
   def resque_with_question_not_found
@@ -54,6 +60,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, answers_attributes: [:text, :correct])
+    params.require(:question).permit(:body, answers_attributes: [:id, :text, :correct])
   end
 end
