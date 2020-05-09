@@ -1,6 +1,6 @@
 module ApplicationHelper
   def current_year
-    Time.now.strftime('%Y')
+    Time.current.strftime('%Y')
   end
 
   def authors

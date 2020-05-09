@@ -7,24 +7,36 @@ class Test < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  scope :by_difficulty, ->(difficulty) do
-    where(level: case difficulty
-                 when :easy
-                   0..1
-                 when :medium
-                   2..4
-                 when :hard
-                   5..Float::INFINITY
-                 end)
-  end
+  scope :by_difficulty, (lambda do |difficulty|
+    level = case difficulty
+            when :easy
+              0..1
+            when :medium
+              2..4
+            when :hard
+              5..Float::INFINITY
+            end
+    where(level: level)
+  end)
 
-  scope :by_category, ->(category_name) do
+  scope :by_category, (lambda do |category_name|
     joins(:category)
       .where(categories: { title: category_name })
       .order('tests.title desc')
+  end)
+
+  def difficulty
+    case level
+    when 0..1
+      :easy
+    when 2..4
+      :medium
+    when 5..Float::INFINITY
+      :hard
+    end
   end
 
-  def names_by_category
+  def self.names_by_category
     by_category.pluck('tests.title')
   end
 

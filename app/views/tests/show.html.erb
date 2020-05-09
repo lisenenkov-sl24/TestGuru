@@ -2,5 +2,16 @@
 <div><label>Уровень:</label> <%= @test.level%></div>
 <div><label>Категория:</label> <%= @test.category%></div>
 <div><label>Автор:</label> <%= @test.author%></div>
-<div><%= link_to 'Вопросы', test_questions_path(test_id: @test.id)%></div>
-<%= render 'questions/list', test: @test, questions: @test.questions%>
+
+<br/>
+<table>
+  <tr>
+    <th>Вопросы</th>
+    <th colspan="2">Действия</th>
+  </tr>
+  <%= render @test.questions%>
+</table>
+<%= link_to 'Создать', new_test_question_path(@test) %>
+
+<div><%= link_to 'Все тесты', tests_path%></div>
+

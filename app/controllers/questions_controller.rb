@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html {}
+      format.html
       format.text { render plain: @question.body }
     end
   end
@@ -13,13 +13,11 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new(test: @test)
     @question.answers.push(Answer.new(correct: true))
-    3.times {@question.answers.push(Answer.new)}
+    3.times { @question.answers.push(Answer.new) }
   end
 
   def edit
-    if(@question.answers.size < 4)
-      @question.answers.push(Answer.new)
-    end
+    @question.answers.push(Answer.new) if @question.answers.size < 4
   end
 
   def update
@@ -41,10 +39,10 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy()
+    @question.destroy
     redirect_to @question.test
   end
-  
+
   private
 
   def find_test

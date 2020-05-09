@@ -1,4 +1,4 @@
-<h3><%= edit_header(question)%></h3>
+<h3><%= question_edit_header(question)%></h3>
 <%= form_with model: [test, question], local: true do |form| %>
 <% if question.errors.present? %>
 Ошибки: <div><%= question.errors.full_messages %></div>
@@ -7,7 +7,7 @@
 <%= form.label :body, 'Вопрос' %>
 <%= form.text_field :body, size: 100 %>
 </div>
-<%= form.fields_for :answers do |answer_form|%>
+<%= form.fields_for :answers do |answer_form| %>
   <div>
   <%= answer_form.hidden_field :id%>
   <%= answer_form.label :text, 'Ответ' %>

@@ -16,7 +16,7 @@
 <%= link_to 'Редактировать', edit_question_path(@question)%>
 </div>
 <div>
-<%= link_to 'Удалить', question_path(@question), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Удалить', question_path(@question), method: :delete, data: { confirm: 'Удалить вопрос?' } %>
 </div>
 
 <%= link_to 'К вопросу', @question.test%>
