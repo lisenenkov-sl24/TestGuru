@@ -36,6 +36,10 @@ class Test < ApplicationRecord
     end
   end
 
+  def start
+    results.uncompleted.first || results.push(Result.new(user: User.first))[-1]
+  end
+
   def self.names_by_category
     by_category.pluck('tests.title')
   end

@@ -1,0 +1,11 @@
+<h3>Тест <%= @result.test.title %> завершен</h3>
+Правильных ответов  <span style="color: <%= result_pass_color(@result.passed?) %>"><%= @result.correct_answers %> из <%= @result.answers %></span>
+<div style="color: <%= result_pass_color(@result.passed?) %>">
+<% if @result.passed? %>
+Тест пройден
+<% else %>
+Тест не пройден
+<% end %>
+</div>
+
+<div><%= link_to 'К тестам', tests_path%></div>

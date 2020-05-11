@@ -6,5 +6,6 @@
   <td><%= test.question_count%></td>
   <td><%= link_to "Просмотр", test%></td>
   <td><%= link_to "Редактировать", edit_test_path(test)%></td>
+  <td><%= link_to "Стартовать", start_test_path(test), method: :post%></td>
   <td><%= link_to "Удалить", test_path(test), method: :delete, data: { confirm: 'Удалить тест?' }%></td>
 </tr>

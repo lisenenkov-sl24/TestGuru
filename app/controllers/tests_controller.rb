@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: [:show, :edit, :update, :destroy]
+  before_action :find_test, only: %i[show edit update destroy start]
 
   def index
     respond_to do |format|
@@ -44,6 +44,10 @@ class TestsController < ApplicationController
   def destroy
     @test.destroy
     redirect_to tests_path
+  end
+
+  def start
+    redirect_to @test.start
   end
 
   private

@@ -1,0 +1,16 @@
+<h3>Прохождение <%= @result.test.title%></h3>
+
+<h4><%= @result.current_question.body%></h4>
+Вопрос <%= @result.answers + 1 %> из <%= @question_count %>
+
+<%= form_with url: result_path(@result), local: true, method: :put do |form| %>
+<ol>
+  <%= form.collection_check_boxes :answers, @result.current_question.answers, :id, :text, include_hidden: false do |answer| %>
+    <li>
+      <%= answer.check_box %>
+      <%= answer.label %>
+    </li>
+  <% end %>
+</ol>
+<%= form.submit  (@result.answers + 1 == @question_count) ? 'End' : 'Next' %>
+<% end %>
