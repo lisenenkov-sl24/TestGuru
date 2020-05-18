@@ -36,8 +36,13 @@ class Test < ApplicationRecord
     end
   end
 
-  def start
-    results.uncompleted.first || results.push(Result.new(user: User.first))[-1]
+  def start(user)
+    result = results.uncompleted.first
+    unless result
+      result = Result.new(user: user)
+      results.push(result)
+    end
+    result
   end
 
   def self.names_by_category

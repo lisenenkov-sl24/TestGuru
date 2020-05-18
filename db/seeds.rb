@@ -8,7 +8,11 @@
 
 categories = Category.create([{ title: 'Math' }, { title: 'Programming' }, { title: 'Language' }])
 
-users = User.create!([{ name: 'John' }, { name: 'Dick' }, { name: 'Mary' }])
+users = User.create!([
+  { name: 'John', email: 'john@doe.com', password: '123' },
+  { name: 'Dick', email: 'big@dick.us', password: '123' },
+  { name: 'Mary', email: 'mary@luisa.fr', password: '123' }
+])
 
 tests = Test.create!([
   { title: 'Arithmetic', level: 0, category: categories[0], author: users[1] },

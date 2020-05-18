@@ -47,7 +47,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    redirect_to @test.start
+    redirect_to @test.start(current_user)
   end
 
   private

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
+  get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+  delete :login, to: 'sessions#destroy'
+
+  resources :users, path: 'newuser', only: :create
+  resources :sessions, path: 'login', only: :create
+
   resources :tests do
     member do
       post 'start'
