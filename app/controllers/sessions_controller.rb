@@ -8,14 +8,9 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      if session[:redirect_after_login].blank?
-        redirect_to tests_path
-      else
-        redirect_to session[:redirect_after_login]
-        session[:redirect_after_login] = nil
-      end
+      redirect_to cookies.delete(:redirect_after_login) || tests_path
     else
-      flash.now[:login_error] = 'Не найдены пользователь / пароль'
+      flash.now[:error] = 'Не найдены пользователь / пароль'
       render :new
     end
   end

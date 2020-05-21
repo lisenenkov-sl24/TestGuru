@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     return if current_user
 
-    session[:redirect_after_login] = request.url
+    cookies[:redirect_after_login] = request.url
     redirect_to login_path
   end
 
