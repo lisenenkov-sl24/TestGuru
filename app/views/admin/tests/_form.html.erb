@@ -15,10 +15,6 @@
 <%= form.label :level, 'Уровень' %>
 <%= form.text_field :level, type: "number" %>
 </div>
-<div>
-<%= form.label :author_id, 'Автор' %>
-<%= form.select :author_id, User.all.collect { |p| [p.name, p.id] }, include_blank: true %>
-</div>
 
 <%= form.submit %>
 <% end %>
