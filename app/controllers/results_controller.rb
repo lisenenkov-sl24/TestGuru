@@ -1,5 +1,8 @@
 class ResultsController < ApplicationController
+  before_action :find_test, only: :index
   before_action :find_result, only: %i[show update result]
+
+  def index; end
 
   def show
     redirect_to completed_result_path(@result) if @result.completed?
@@ -19,6 +22,10 @@ class ResultsController < ApplicationController
   end
 
   private
+
+  def find_test
+    @test = Test.find(params[:test_id])
+  end
 
   def find_result
     @result = Result.find(params[:id])

@@ -9,6 +9,7 @@
 Тест не пройден
 <% end %>
 </div>
+<br/>
 
-
-<div><%= link_to 'К тестам', tests_path%></div>
+<div><%= link_to 'К результатам', test_results_path(@result.test) %></div>
+<div><%= link_to 'К тестам', tests_path %></div>

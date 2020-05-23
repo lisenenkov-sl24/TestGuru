@@ -7,7 +7,9 @@
   <th>Сложность</th>
   <th>Автор</th>
   <th>Количество вопросов</th>
-  <th colspan="2">Действия</th>
+  <th colspan="4">Действия</th>
 </tr>
 <%= render @tests %>
 </table>
+
+<div><%= link_to 'Создать тест', new_admin_test_path%></div>

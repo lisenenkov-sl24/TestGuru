@@ -2,7 +2,13 @@
   border: solid 2px #222;
   border-radius: 0.3em;
   padding: 0.3em 0.7em;
+  &.notice{
+    border-color: #28A;
+  }
+  &.alert{
+    border-color: #F25;
+  }
   &.error{
-    border-color: red;
+    border-color: #F11;
   }
 }

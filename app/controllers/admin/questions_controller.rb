@@ -1,14 +1,9 @@
-class QuestionsController < ApplicationController
-  before_action :find_test, only: [:new, :create]
-  before_action :find_question, only: [:show, :edit, :update, :destroy]
+class Admin::QuestionsController < Admin::BaseController
+  before_action :find_test, only: %i[new create]
+  before_action :find_question, only: %i[show edit update destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_question_not_found
 
-  def show
-    respond_to do |format|
-      format.html
-      format.text { render plain: @question.body }
-    end
-  end
+  def show; end
 
   def new
     @question = Question.new(test: @test)
@@ -22,9 +17,9 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question.test
+      redirect_to [:admin, @question.test]
     else
-      render :new
+      render :edit
     end
   end
 
@@ -32,7 +27,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.test = @test
     if @question.save
-      redirect_to @test
+      redirect_to [:admin, @test]
     else
       render :new
     end
@@ -40,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to @question.test
+    redirect_to [:admin, @question.test]
   end
 
   private

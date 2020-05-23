@@ -13,13 +13,8 @@
   <header>
     <h1 class="home"> <%= link_to 'TestGuru', root_path %></h1>
     <h1 class="user">
-    <% if user_signed_in? %>
-      Welcome, <%= link_to current_user.name, edit_user_registration_path %> Guru 
+      Welcome, Admin <%= link_to current_user.name, edit_user_registration_path %> Guru 
       <%= link_to 'Выход', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Вход', user_session_path %>
-      <%= link_to 'Регистрация', new_user_registration_path %>
-    <% end %>
     </h1>
   <header>
   <%= show_messages %>

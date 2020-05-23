@@ -11,7 +11,7 @@
   </tr>
   <%= render @test.questions%>
 </table>
-<%= link_to 'Создать', new_test_question_path(@test) %>
+<%= link_to 'Создать', new_admin_test_question_path(@test) %>
 
-<div><%= link_to 'Все тесты', tests_path%></div>
+<div><%= link_to 'Все тесты', admin_tests_path%></div>
 

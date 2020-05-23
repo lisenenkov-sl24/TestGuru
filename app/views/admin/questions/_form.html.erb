@@ -1,5 +1,5 @@
 <h3><%= question_edit_header(question)%></h3>
-<%= form_with model: [test, question], local: true do |form| %>
+<%= form_with model: [:admin, test, question], local: true do |form| %>
 <% if question.errors.present? %>
 Ошибки: <div><%= question.errors.full_messages %></div>
 <% end %>
@@ -18,4 +18,4 @@
 <% end %>
 <%= form.submit %>
 <% end %>
-<%= link_to 'К тесту', question.test%>
+<%= link_to 'К тесту', admin_test_path(question.test)%>

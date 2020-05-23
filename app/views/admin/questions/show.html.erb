@@ -13,10 +13,10 @@
 <% end %>
 <hr/>
 <div>
-<%= link_to 'Редактировать', edit_question_path(@question)%>
+<%= link_to 'Редактировать', edit_admin_question_path(@question)%>
 </div>
 <div>
-<%= link_to 'Удалить', question_path(@question), method: :delete, data: { confirm: 'Удалить вопрос?' } %>
+<%= link_to 'Удалить', admin_question_path(@question), method: :delete, data: { confirm: 'Удалить вопрос?' } %>
 </div>
 
-<%= link_to 'К вопросу', @question.test%>
+<%= link_to 'К вопросу', [:admin, @question.test]%>

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= user.name%></td>
+  <td><%= user.email%></td>
+  <td><%= user.first_name%></td>
+  <td><%= user.last_name%></td>
+  <td>
+  <% if user.is_a? Admin %>
+    <%= link_to 'Сделать пользователем',  make_admin_admin_user_path(user), method: :delete %></td>
+  <% else %>
+    <%= link_to 'Сделать администратором', make_admin_admin_user_path(user), method: :post %></td>
+  <% end %>
+</tr>
