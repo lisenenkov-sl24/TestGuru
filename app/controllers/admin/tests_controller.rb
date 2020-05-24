@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :find_test, only: %i[show edit update destroy start]
+  before_action :find_test, only: %i[show edit update destroy]
 
   def index
     respond_to do |format|
@@ -28,13 +28,12 @@ class Admin::TestsController < Admin::BaseController
     if @test.update(test_params)
       redirect_to tests_path
     else
-      render :new
+      render :edit
     end
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.author = current_user
+    @test = current_user.created_tests.new(test_params)
     if @test.save
       redirect_to tests_path
     else
@@ -45,10 +44,6 @@ class Admin::TestsController < Admin::BaseController
   def destroy
     @test.destroy
     redirect_to tests_path
-  end
-
-  def start
-    redirect_to @test.start(current_user)
   end
 
   private
