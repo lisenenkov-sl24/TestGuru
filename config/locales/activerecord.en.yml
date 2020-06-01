@@ -1,0 +1,33 @@
+ru:
+  activerecord:
+    models:
+      answer: "Ответ"
+      category: "Категория"
+      question: "Вопрос"
+      test: "Тест"
+    attributes:
+      answer:
+        text: "Текст"
+        correct: "Правильный"
+      category:
+        title: "Название"
+      question:
+        body: "Вопрос"
+      test:
+        title: "Название"
+        level: "Уровень"
+        difficulty: "Сложность"
+        category_id: "Категория"
+        category: "Категория"
+        author: "Автор"
+    errors:
+      detected:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        other: "Обнаружено %{count} ошибок"
+    helpers:
+      test:
+        new: "Create New %{question} Question"
+        edit: "Edit %{question} Question"
+

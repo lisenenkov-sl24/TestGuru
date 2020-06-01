@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p> 
-<h2>Тест <%= @question.test%></h2>
-<div><label>Текст вопроса </label><%= @question.body%></div>
+<h2>
+  <%= Test.model_name.human %>
+  <%= @question.test %>
+</h2>
+<div><label><%= t('.question_text') %> </label><%= @question.body%></div>
 
-<h3>Ответы</h3>
+<h3><%= Answer.model_name.human(count: 0) %></h3>
 <% @question.answers.select(:text, :correct).each do |answer| %>
   <div><% if(answer.correct) %>
   <b><%= answer.text%></b>
@@ -13,10 +16,10 @@
 <% end %>
 <hr/>
 <div>
-<%= link_to 'Редактировать', edit_admin_question_path(@question)%>
+<%= link_to t('edit'), edit_admin_question_path(@question)%>
 </div>
 <div>
-<%= link_to 'Удалить', admin_question_path(@question), method: :delete, data: { confirm: 'Удалить вопрос?' } %>
+<%= link_to t('delete'), admin_question_path(@question), method: :delete, data: { confirm: t('confirm_deletion') } %>
 </div>
 
-<%= link_to 'К вопросу', [:admin, @question.test]%>
+<%= link_to t('nav.question'), [:admin, @question.test]%>

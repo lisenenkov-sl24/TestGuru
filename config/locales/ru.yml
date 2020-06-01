@@ -29,9 +29,31 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+ru:
+  confirm_deletion: 'Подтвердите удаление'
+  show: "Просмотр"
+  edit: "Редактировать"
+  delete: "Удалить"
+  actions: "Действия"
+  nav:
+    question: "К вопросу"
+    test: "К тесту"
+    tests: "К тестам"
   admin:
-    home:
+    questions:
+      show:
+        question_text: "Текст вопроса"
+    tests:
       index:
-        tests: "Tests"
-        users: "Users"
+        questions_count: "Количество вопросов"
+        create_test: "Создать тест"
+      show:
+        create_question: "Создать вопрос"
+        all_tests: "Все тесты"
+    users:
+      user:
+        make_admin: 'Сделать администратором'        
+        make_ordinal_user: 'Сделать пользователем'        
+
+
+

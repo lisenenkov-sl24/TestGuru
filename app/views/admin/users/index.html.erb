@@ -1,10 +1,10 @@
 <table>
 <tr>
-  <th>Логин</th>
-  <th>Email</th>
-  <th>Имя</th>
-  <th>Фамилия</th>
-  <th>Действия</th>
+  <th><%= User.human_attribute_name(:name) %></th>
+  <th><%= User.human_attribute_name(:email) %></th>
+  <th><%= User.human_attribute_name(:first_name) %></th>
+  <th><%= User.human_attribute_name(:last_name) %></th>
+  <th><%= t('actions') %></th>
 </tr>
 <%= render partial: 'user', collection: User.all %>
 </table>

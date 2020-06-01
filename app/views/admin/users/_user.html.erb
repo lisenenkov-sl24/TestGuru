@@ -5,8 +5,8 @@
   <td><%= user.last_name%></td>
   <td>
   <% if user.is_a? Admin %>
-    <%= link_to 'Сделать пользователем',  make_admin_admin_user_path(user), method: :delete %></td>
+    <%= link_to t('.make_ordinal_user'),  make_admin_admin_user_path(user), method: :delete %></td>
   <% else %>
-    <%= link_to 'Сделать администратором', make_admin_admin_user_path(user), method: :post %></td>
+    <%= link_to t('.make_admin'), make_admin_admin_user_path(user), method: :post %></td>
   <% end %>
 </tr>

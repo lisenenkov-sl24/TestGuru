@@ -1,21 +1,19 @@
 <h3><%= test_edit_header(test)%></h3>
 <%= form_with model: [:admin, test], local: true do |form| %>
-<% if test.errors.present? %>
-Ошибки: <div><%= test.errors.full_messages %></div>
-<% end %>
+<% show_errors(test) %>
 <div>
-<%= form.label :title, 'Название' %>
+<%= form.label :title %>
 <%= form.text_field :title, size: 100 %>
 </div>
 <div>
-<%= form.label :category_id, 'Категория' %>
+<%= form.label :category_id %>
 <%= form.select :category_id, Category.all.collect { |p| [p.title, p.id] }, include_blank: true %>
 </div>
 <div>
-<%= form.label :level, 'Уровень' %>
+<%= form.label :level %>
 <%= form.text_field :level, type: "number" %>
 </div>
 
 <%= form.submit %>
 <% end %>
-<%= link_to 'К тестам', admin_tests_path%>
+<%= link_to t('nav.tests'), admin_tests_path%>

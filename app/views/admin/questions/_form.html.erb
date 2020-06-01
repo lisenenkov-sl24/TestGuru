@@ -4,18 +4,18 @@
 Ошибки: <div><%= question.errors.full_messages %></div>
 <% end %>
 <div>
-<%= form.label :body, 'Вопрос' %>
+<%= form.label :body%>
 <%= form.text_field :body, size: 100 %>
 </div>
 <%= form.fields_for :answers do |answer_form| %>
   <div>
   <%= answer_form.hidden_field :id%>
-  <%= answer_form.label :text, 'Ответ' %>
+  <%= answer_form.label :text %>
   <%= answer_form.text_field :text, size: 50 %>
-  <%= answer_form.label :correct, 'Правильный' %>
+  <%= answer_form.label :correct %>
   <%= answer_form.check_box :correct %>
   </div>
 <% end %>
 <%= form.submit %>
 <% end %>
-<%= link_to 'К тесту', admin_test_path(question.test)%>
+<%= link_to t('nav.test'), admin_test_path(question.test)%>

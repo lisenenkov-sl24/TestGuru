@@ -1,17 +1,17 @@
 <h3><%= @test.title%></h3>
-<div><label>Уровень:</label> <%= @test.level%></div>
-<div><label>Категория:</label> <%= @test.category%></div>
-<div><label>Автор:</label> <%= @test.author%></div>
+<div><label><%= Test.human_attribute_name(:level) %>:</label> <%= @test.level%></div>
+<div><label><%= Test.human_attribute_name(:category) %>:</label> <%= @test.category%></div>
+<div><label><%= Test.human_attribute_name(:author) %>:</label> <%= @test.author%></div>
 
 <br/>
 <table>
   <tr>
-    <th>Вопросы</th>
-    <th colspan="2">Действия</th>
+    <th><%= Question.model_name.human(count: 0) %></th>
+    <th colspan="2"><%= t('actions') %></th>
   </tr>
   <%= render @test.questions%>
 </table>
-<%= link_to 'Создать', new_admin_test_question_path(@test) %>
+<%= link_to t('.create_question'), new_admin_test_question_path(@test) %>
 
-<div><%= link_to 'Все тесты', admin_tests_path%></div>
+<div><%= link_to t('.all_tests'), admin_tests_path%></div>
 

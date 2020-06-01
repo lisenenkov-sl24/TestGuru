@@ -12,8 +12,6 @@ module TestGuru
     config.load_defaults 5.2
 
     config.time_zone = 'Moscow'
-    # config.i18n.available_locales = [:ru, :en]
-    # config.i18n.default_locale = :ru
     config.encoding = 'utf-8'
     config.action_dispatch.default_charset = 'utf-8'
 
