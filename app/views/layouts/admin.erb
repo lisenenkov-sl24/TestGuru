@@ -12,12 +12,12 @@
   <body>
   <header>
     <h1 class="home"> <%= link_to 'TestGuru', root_path %></h1>
-    <h1 class="user">
-      Welcome, Admin <%= link_to current_user.name, edit_user_registration_path %> Guru 
-      <%= link_to 'Выход', destroy_user_session_path, method: :delete %>
+    <h1 class="user"> 
+      <%= login_info('admin') %>
+      <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
     </h1>
   <header>
-  <%= show_messages %>
+  <% show_messages %>
   <%= yield %>
   <footer>
     <hr/>

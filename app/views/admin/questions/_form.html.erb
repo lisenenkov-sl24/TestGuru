@@ -1,21 +1,21 @@
 <h3><%= question_edit_header(question)%></h3>
 <%= form_with model: [:admin, test, question], local: true do |form| %>
-<% if question.errors.present? %>
-Ошибки: <div><%= question.errors.full_messages %></div>
-<% end %>
-<div>
-<%= form.label :body%>
-<%= form.text_field :body, size: 100 %>
-</div>
-<%= form.fields_for :answers do |answer_form| %>
-  <div>
-  <%= answer_form.hidden_field :id%>
-  <%= answer_form.label :text %>
-  <%= answer_form.text_field :text, size: 50 %>
-  <%= answer_form.label :correct %>
-  <%= answer_form.check_box :correct %>
+  <% if question.errors.present? %>
+  Ошибки: <div><%= question.errors.full_messages %></div>
+  <% end %>
+  <div class="field">
+    <%= form.label :body %><br />
+    <%= form.text_field :body, size: 100 %>
   </div>
-<% end %>
-<%= form.submit %>
+   <%= form.fields_for :answers do |answer_form| %>
+     <%= answer_form.hidden_field :id%>
+    <div class="field">
+      <%= answer_form.label :text %>
+      <%= answer_form.text_field :text, size: 50 %>
+      <%= answer_form.label :correct %>
+      <%= answer_form.check_box :correct %>
+    </div>
+  <% end %>
+  <%= form.submit %>
 <% end %>
 <%= link_to t('nav.test'), admin_test_path(question.test)%>

@@ -1,15 +1,9 @@
-<h3>Тест <%= @result.test.title %> завершен</h3>
-<% class_name = @result.passed? ? "passed" : "failed" %>
-Правильных ответов  <span class="<%= class_name %>"><%= @result.correct_answers %> из <%= @result.answers %></span>
-
-<div class="<%= class_name %>">
-<% if @result.passed? %>
-Тест пройден
-<% else %>
-Тест не пройден
-<% end %>
+<h3><%= t('.test_completed', test: @result.test.title) %></h3>
+<div class="<%= @result.passed? ? "passed" : "failed" %>">
+<%= t('.correct_answers', count: @result.correct_answers, total: @result.answers) %><br/>
+<%= @result.passed? ? t('.passed') : t('.failed') %>
 </div>
 <br/>
 
-<div><%= link_to 'К результатам', test_results_path(@result.test) %></div>
-<div><%= link_to 'К тестам', tests_path %></div>
+<div><%= link_to Result.model_name.human(count: 0), test_results_path(@result.test) %></div>
+<div><%= link_to t('nav.tests'), tests_path %></div>

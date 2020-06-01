@@ -1,4 +1,4 @@
-<h2>Прохождения <%= @test.title %></h2>
+<h2> <%= t('.passages') %> <%= @test.title %></h2>
 <ul>
 <% @test.results.each do |result| %>
   <% class_name = result.passed? ? "passed" : "failed" %>
@@ -7,4 +7,4 @@
 </ul>
 
 
-<div><%= link_to 'К тестам', tests_path%></div>
+<div><%= link_to t('nav.tests'), tests_path %></div>

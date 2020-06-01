@@ -1,44 +1,28 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 ru:
   confirm_deletion: 'Подтвердите удаление'
   show: "Просмотр"
   edit: "Редактировать"
   delete: "Удалить"
   actions: "Действия"
+  welcome:
+    user: "Приветствуем, Гуру %{user}"
+    admin: "Приветствуем, администратор %{user}"
   nav:
     question: "К вопросу"
     test: "К тесту"
     tests: "К тестам"
+  helpers:
+    select:
+      prompt: "Выберите значение"
+  errors:
+    admin_required: 'Необходимы права администратора'
+    question_not_found: 'Вопрос не найден'
+  devise:
+    shared:
+      links:
+        sign_out: "Выйти"
+    sessions:
+      greeting: "Здравствуйте, %{firstname} %{lastname}!"
   admin:
     questions:
       show:
@@ -54,6 +38,25 @@ ru:
       user:
         make_admin: 'Сделать администратором'        
         make_ordinal_user: 'Сделать пользователем'        
-
-
-
+  results:
+    index:
+      passages: "Прохождения"
+    result:
+      test_completed: "Тест %{test} завершен"
+      correct_answers: 
+        one: "Правильный ответ %{count} из %{total}"
+        few: "Правильных ответов %{count} из %{total}"
+        many: "Правильных ответов %{count} из %{total}"
+        other: "Правильных ответов %{count} из %{total}"
+      passed: "Тест пройден"
+      failed: "Тест не пройден"
+    show:
+      passing: "Прохождение %{test}"
+      question_no: "Вопрос %{numder} из %{total}"
+      next: "Следующий"
+      end: "Закончить"
+  tests:
+    test:
+      start: "Стартовать"
+    index:
+      questions_count: "Количество вопросов"

@@ -1,7 +1,7 @@
-<h3>Прохождение <%= @result.test.title%></h3>
+<h3><%= t('.passing', test: @result.test.title) %></h3>
 
 <h4><%= @result.current_question.body%></h4>
-Вопрос <%= @result.answers + 1 %> из <%= @question_count %>
+<%= t('.question_no', numder: @result.answers + 1, total: @question_count) %>
 
 <%= form_with url: result_path(@result), local: true, method: :put do |form| %>
 <ol>
@@ -12,5 +12,5 @@
     </li>
   <% end %>
 </ol>
-<%= form.submit  (@result.answers + 1 == @question_count) ? 'End' : 'Next' %>
+<%= form.submit (@result.answers + 1 == @question_count) ? t('.end') : t('.next') %>
 <% end %>

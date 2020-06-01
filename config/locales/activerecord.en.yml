@@ -1,33 +1,55 @@
-ru:
+en:
   activerecord:
     models:
-      answer: "Ответ"
-      category: "Категория"
-      question: "Вопрос"
-      test: "Тест"
+      answer:
+        one: "Answer"
+        zero: "Answers"
+      category:
+        one: "Category"
+        zero: "Categories"
+      question:
+        one: "Question"
+        zero: "Questions"
+      test:
+        one: "Test"
+        zero: "Tests"
+      result:
+        one: "Result"
+        zero: "Results"
+      user:
+        one: "User"
+        zero: "Users"
     attributes:
       answer:
-        text: "Текст"
-        correct: "Правильный"
+        text: "Text"
+        correct: "Correct"
       category:
-        title: "Название"
+        title: "Title"
       question:
-        body: "Вопрос"
+        body: "Body"
       test:
-        title: "Название"
-        level: "Уровень"
-        difficulty: "Сложность"
-        category_id: "Категория"
-        category: "Категория"
-        author: "Автор"
+        title: "Title"
+        level: "Level"
+        difficulty: "Difficulty"
+        category_id: "Category"
+        category: "Category"
+        author: "Author"
+      test/difficulties:
+        easy: "Easy"
+        medium: "Medium"
+        hard: "Hard"
+      user:
+        name: "Name"
+        first_name: "First name"
+        last_name: "Last name"
     errors:
       detected:
-        one: "Обнаружена %{count} ошибка"
-        few: "Обнаружено %{count} ошибки"
-        many: "Обнаружено %{count} ошибок"
-        other: "Обнаружено %{count} ошибок"
+        one: "Found %{count} error"
+        other: "Found %{count} errors"
     helpers:
       test:
-        new: "Create New %{question} Question"
-        edit: "Edit %{question} Question"
-
+        new: "Create New Test"
+        edit: "Edit %{test} Test"
+      question:
+        new: "Create New %{test} Question"
+        edit: "Edit %{test} Question"

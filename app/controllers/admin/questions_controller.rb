@@ -49,7 +49,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def resque_with_question_not_found
-    render plain: 'Вопрос не найден'
+    render plain: t('errors.question_not_found')
   end
 
   def question_params

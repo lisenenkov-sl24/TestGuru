@@ -13,6 +13,9 @@ ru:
       test:
         one: "Тест"
         zero: "Тесты"
+      result:
+        one: "Результат"
+        zero: "Результаты"
       user:
         one: "Пользователь"
         zero: "Пользователи"
@@ -31,9 +34,12 @@ ru:
         category_id: "Категория"
         category: "Категория"
         author: "Автор"
+      test/difficulties:
+        easy: "Легко"
+        medium: "Средне"
+        hard: "Сложно"
       user:
         name: "Логин"
-        email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
     errors:
