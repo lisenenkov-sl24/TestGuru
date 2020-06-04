@@ -4,6 +4,6 @@
   <td><%= test.difficulty%> (<%= test.level%>)</td>
   <td><%= test.author%></td>
   <td><%= test.question_count%></td>
-  <td><%= link_to t(".start"), start_test_path(test), method: :post%></td>
-  <td><%= link_to Result.model_name.human(count: 0), test_results_path(test)%></td>
+  <td><%= link_to t(".start"), start_test_path(test), method: :post, class: 'btn btn-secondary' %></td>
+  <td><%= link_to Result.model_name.human(count: 0), test_results_path(test), class: 'btn btn-secondary' %></td>
 </tr>

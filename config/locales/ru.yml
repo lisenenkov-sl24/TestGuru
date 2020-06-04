@@ -4,13 +4,11 @@ ru:
   edit: "Редактировать"
   delete: "Удалить"
   actions: "Действия"
-  welcome:
-    user: "Приветствуем, Гуру %{user}"
-    admin: "Приветствуем, администратор %{user}"
   nav:
     question: "К вопросу"
     test: "К тесту"
     tests: "К тестам"
+    admin: "Admin panel"
   helpers:
     select:
       prompt: "Выберите значение"
@@ -20,6 +18,7 @@ ru:
   devise:
     shared:
       links:
+        profile: "Профиль"
         sign_out: "Выйти"
     sessions:
       greeting: "Здравствуйте, %{firstname} %{lastname}!"

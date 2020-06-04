@@ -1,16 +1,24 @@
-<h3><%= t('.passing', test: @result.test.title) %></h3>
+<div class="row ml-5 mt-5">
+  <div class="col">
+    <h3><%= t('.passing', test: @result.test.title) %></h3>
 
-<h4><%= @result.current_question.body%></h4>
-<%= t('.question_no', numder: @result.answers + 1, total: @question_count) %>
+    <h4><%= @result.current_question.body%></h4>
+    <%= t('.question_no', numder: @result.answers + 1, total: @question_count) %>
 
-<%= form_with url: result_path(@result), local: true, method: :put do |form| %>
-<ol>
-  <%= form.collection_check_boxes :answers, @result.current_question.answers, :id, :text, include_hidden: false do |answer| %>
-    <li>
-      <%= answer.check_box %>
-      <%= answer.label %>
-    </li>
-  <% end %>
-</ol>
-<%= form.submit (@result.answers + 1 == @question_count) ? t('.end') : t('.next') %>
-<% end %>
+    <%= form_with url: result_path(@result), local: true, method: :put, class: 'form-group' do |form| %>
+    <ol>
+      <%= form.collection_check_boxes :answers, @result.current_question.answers, :id, :text, include_hidden: false do |answer| %>
+      <li>
+        <div class="form-check">
+          <%= answer.label class: 'form-check-label' do%>
+          <%= answer.check_box class: 'form-check-input' %>
+          <%= answer.text %>
+          <% end %>
+        </div>
+      </li>
+      <% end %>
+    </ol>
+    <%= form.submit (@result.answers + 1 == @question_count) ? t('.end') : t('.next'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

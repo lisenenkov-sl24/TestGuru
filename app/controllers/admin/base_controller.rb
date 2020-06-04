@@ -1,8 +1,6 @@
 class Admin::BaseController < ApplicationController
   before_action :admin_required!
 
-  layout 'admin'
-
   private
 
   def admin_required!

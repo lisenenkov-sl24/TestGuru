@@ -4,7 +4,7 @@
   <td><%= Test.human_attribute_name("difficulties.#{test.difficulty}")%> (<%= test.level%>)</td>
   <td><%= test.author%></td>
   <td><%= test.question_count%></td>
-  <td><%= link_to t('show'), admin_test_path(test)%></td>
-  <td><%= link_to t('edit'), edit_admin_test_path(test)%></td>
-  <td><%= link_to t('delete'), admin_test_path(test), method: :delete, data: { confirm: t('confirm_deletion') }%></td>
+  <td><%= link_to t('show'), admin_test_path(test), class: 'btn btn-secondary' %></td>
+  <td><%= link_to t('edit'), edit_admin_test_path(test), class: 'btn btn-secondary' %></td>
+  <td><%= link_to t('delete'), admin_test_path(test), method: :delete, data: { confirm: t('confirm_deletion') }, class: 'btn btn-secondary' %></td>
 </tr>

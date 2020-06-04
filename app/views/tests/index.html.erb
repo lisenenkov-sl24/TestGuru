@@ -1,13 +1,13 @@
 <h2><%= Test.model_name.human%></h2>
-<br/>
-<table>
-<tr>
-  <th><%= Test.human_attribute_name(:title) %></th>
-  <th><%= Test.human_attribute_name(:category) %></th>
-  <th><%= Test.human_attribute_name(:difficulty) %></th>
-  <th><%= Test.human_attribute_name(:author) %></th>
-  <th><%= t('.questions_count') %></th>
-  <th colspan="2"><%= t('actions') %></th>
-</tr>
-<%= render @tests %>
+<br />
+<table class="table">
+  <tr>
+    <th><%= Test.human_attribute_name(:title) %></th>
+    <th><%= Test.human_attribute_name(:category) %></th>
+    <th><%= Test.human_attribute_name(:difficulty) %></th>
+    <th><%= Test.human_attribute_name(:author) %></th>
+    <th><%= t('.questions_count') %></th>
+    <th colspan="2"><%= t('actions') %></th>
+  </tr>
+  <%= render @tests %>
 </table>

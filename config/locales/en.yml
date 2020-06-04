@@ -4,19 +4,18 @@ en:
   edit: "Edit"
   delete: "Delete"
   actions: "Actions"
-  welcome:
-    user: "Welcome %{user} Guru"
-    admin: "Welcome %{user} Admin"
   nav:
     question: "To question"
     test: "To test"
     tests: "To tests"
+    admin: "Панель администрирования"
   errors:
     admin_required: 'Need administrator'
     question_not_found: 'Question not found'
   devise:
     shared:
       links:
+        profile: "Profile"
         sign_out: "Sign out"
     sessions:
       greeting: "Welcome, %{firstname} %{lastname}!"

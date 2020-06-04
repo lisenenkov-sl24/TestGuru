@@ -1,21 +1,29 @@
-<h3><%= question_edit_header(question)%></h3>
-<%= form_with model: [:admin, test, question], local: true do |form| %>
-  <% if question.errors.present? %>
-  Ошибки: <div><%= question.errors.full_messages %></div>
-  <% end %>
-  <div class="field">
-    <%= form.label :body %><br />
-    <%= form.text_field :body, size: 100 %>
-  </div>
-   <%= form.fields_for :answers do |answer_form| %>
-     <%= answer_form.hidden_field :id%>
-    <div class="field">
-      <%= answer_form.label :text %>
-      <%= answer_form.text_field :text, size: 50 %>
-      <%= answer_form.label :correct %>
-      <%= answer_form.check_box :correct %>
+<div class="row ml-3  my-5">
+  <div class="col col-md-8">
+    <h3><%= question_edit_header(question)%></h3>
+    <%= form_with model: [:admin, test, question], local: true do |form| %>
+    <% if question.errors.present? %>
+    Ошибки: <div><%= question.errors.full_messages %></div>
+    <% end %>
+    <div class="form-group">
+      <%= form.label :body %><br />
+      <%= form.text_field :body, size: 100, class: 'form-control' %>
     </div>
-  <% end %>
-  <%= form.submit %>
-<% end %>
-<%= link_to t('nav.test'), admin_test_path(question.test)%>
+    <%= form.fields_for :answers do |answer_form| %>
+    <%= answer_form.hidden_field :id%>
+    <div class="row">
+      <div class="form-group col-lg-8">
+        <%= answer_form.label :text %>
+        <%= answer_form.text_field :text, size: 50, class: 'form-control' %>
+      </div>
+      <div class="form-group col-sm-3 ml-3 mt-5">
+        <%= answer_form.check_box :correct, class: 'form-check-input' %>
+        <%= answer_form.label :correct, class: 'form-check-label' %>
+      </div>
+    </div>
+    <% end %>
+    <%= form.submit(class: 'btn btn-primary') %>
+    <% end %>
+    <%= link_to t('nav.test'), admin_test_path(question.test)%>
+  </div>
+</div>
