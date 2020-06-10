@@ -19,6 +19,9 @@ en:
       user:
         one: "User"
         zero: "Users"
+      gist:
+        one: "Gist"
+        zero: "Gists"
     attributes:
       answer:
         text: "Text"
@@ -42,6 +45,10 @@ en:
         name: "Name"
         first_name: "First name"
         last_name: "Last name"
+      gist:
+        question: "Question"
+        url: "URL"
+        user: "User"
     errors:
       detected:
         one: "Found %{count} error"

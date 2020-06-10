@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :results, path: 'passage', shallow: true, only: %i[index show update] do
         member do
           get 'result', as: 'completed'
+          post 'gist'
         end
       end
     end
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
           delete 'make_admin', action: :delete_admin
         end
       end
+      resources :gists, only: [:index]
     end
   end
 end

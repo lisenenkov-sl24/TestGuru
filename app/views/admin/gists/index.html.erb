@@ -1,0 +1,8 @@
+<table class="table">
+  <tr>
+    <th><%= Gist.human_attribute_name(:question) %></th>
+    <th><%= Gist.human_attribute_name(:url) %></th>
+    <th><%= Gist.human_attribute_name(:user) %></th>
+  </tr>
+  <%= render partial: 'gist', collection: Gist.all %>
+</table>

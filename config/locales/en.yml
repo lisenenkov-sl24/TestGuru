@@ -47,10 +47,15 @@ en:
     show:
       passing: "Passing %{test}"
       question_no: "Question %{numder} from %{total}"
+      gist: "Create gist"
       next: "Next"
       end: "End"
+    gist:
+      gist_created: "Gist created"
   tests:
     test:
       start: "Start"
     index:
       questions_count: "Questions count"
+  gists:
+    description: "A question about %{test} from TestGuru"

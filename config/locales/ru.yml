@@ -52,10 +52,15 @@ ru:
     show:
       passing: "Прохождение %{test}"
       question_no: "Вопрос %{numder} из %{total}"
+      gist: "Сохранить gist"
       next: "Следующий"
       end: "Закончить"
+    gist:
+      gist_created: "Gist создан"
   tests:
     test:
       start: "Стартовать"
     index:
       questions_count: "Количество вопросов"
+  gists:
+    description: "Вопрос о %{test} от TestGuru"

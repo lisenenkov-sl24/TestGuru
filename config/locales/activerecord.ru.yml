@@ -19,6 +19,9 @@ ru:
       user:
         one: "Пользователя"
         zero: "Пользователи"
+      gist:
+        one: "Gist"
+        zero: "Gists"
     attributes:
       answer:
         text: "Текст"
@@ -42,6 +45,10 @@ ru:
         name: "Логин"
         first_name: "Имя"
         last_name: "Фамилия"
+      gist:
+        question: "Вопрос"
+        url: "URL"
+        user: "Пользователь"
     errors:
       detected:
         one: "Обнаружена %{count} ошибка"

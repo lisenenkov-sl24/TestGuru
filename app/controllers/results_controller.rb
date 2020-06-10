@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
   before_action :find_test, only: :index
-  before_action :find_result, only: %i[show update result]
+  before_action :find_result, only: %i[show update result gist]
 
   def index; end
 
@@ -11,6 +11,12 @@ class ResultsController < ApplicationController
   end
 
   def result; end
+
+  def gist
+    gist_service = GistQuestionService.new(@result.current_question)
+    gist_url = gist_service.call(current_user)
+    redirect_to @result, flash: { notice: t('.gist_created'), notice_url: gist_url }
+  end
 
   def update
     @result.accept!(answer_ids)

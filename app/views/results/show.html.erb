@@ -18,6 +18,9 @@
       </li>
       <% end %>
     </ol>
+    
+    <div><%= link_to t('.gist'), gist_result_path(@result), method: :post %></div>
+
     <%= form.submit (@result.answers + 1 == @question_count) ? t('.end') : t('.next'), class: 'btn btn-primary' %>
     <% end %>
   </div>
