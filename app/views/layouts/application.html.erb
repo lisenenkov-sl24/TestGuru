@@ -29,10 +29,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t(I18n.locale) %></a>
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= I18n.locale %></a>
           <div class="dropdown-menu">
             <% I18n.available_locales.each do |lang| %>
-            <div><%= link_to t(lang), { locale: lang }, class: 'dropdown-item' unless lang == I18n.locale %></div>
+            <div><%= link_to lang, { locale: lang }, class: 'dropdown-item' unless lang == I18n.locale %></div>
             <% end %>
           </div>
         </li>

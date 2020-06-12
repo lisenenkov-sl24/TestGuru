@@ -51,7 +51,8 @@ en:
       next: "Next"
       end: "End"
     gist:
-      gist_created: "Gist created"
+      gist_created: "Gist <a href=\"%{url}\" target=\"_blank\">created</a>"
+      gist_failed: "Gist creation failed"
   tests:
     test:
       start: "Start"

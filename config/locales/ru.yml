@@ -56,7 +56,8 @@ ru:
       next: "Следующий"
       end: "Закончить"
     gist:
-      gist_created: "Gist создан"
+      gist_created: "Gist <a href=\"%{url}\" target=\"_blank\">создан</a>"
+      gist_failed: "Создание Gist не удалось"
   tests:
     test:
       start: "Стартовать"

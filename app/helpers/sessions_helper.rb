@@ -1,29 +1,33 @@
 module SessionsHelper
   def show_messages
-    css_classes = { alert: 'danger', notice: 'info' }
+    result = ActiveSupport::SafeBuffer.new
 
-    result = nil
+    flash.each do |key, message|
+      next unless message.is_a? String
 
-    css_classes.each do |key, css_class|
-      flash_text = flash[key]
-      next unless flash_text
-      url = flash["#{key}_url".to_s]
-      content = if url
-                  link_to flash_text, url, target: '_blank'
-                else
-                  flash_text
-                end
-
-      message = content_tag :div, content, class: "alert alert-#{css_class}"
-      if result
-        result << message
-      else
-        result = message
-      end
-
+      result << create_flash_tag(key, message)
     end
-
-    return result
+    result
   end
 
+  private
+
+  def create_flash_tag(key, message)
+    content = if key.ends_with?('_html')
+                sanitize message
+              else
+                message.to_str
+              end
+
+    css_class = case key
+                when /\Aalert/
+                  'danger'
+                when /\Anotice/
+                  'info'
+                else
+                  'secondary'
+                end
+
+    content_tag :div, content, class: "alert alert-#{css_class}"
+  end
 end

@@ -2,6 +2,8 @@ class Question < ApplicationRecord
   belongs_to :test
 
   has_many :answers, dependent: :destroy
+  has_many :gists, dependent: :destroy
+  
   accepts_nested_attributes_for :answers, reject_if: :reject_qiestion, allow_destroy: true
 
   validates :body, presence: true

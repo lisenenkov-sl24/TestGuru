@@ -1,3 +1,3 @@
-Github.configure do |c|
-  c.oauth_token = ENV['TESTGURU_GITHUB_TOKEN']
+Octokit.configure do |c|
+  c.access_token = ENV['TESTGURU_GITHUB_TOKEN']
 end

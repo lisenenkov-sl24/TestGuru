@@ -5,14 +5,14 @@ class Admin::UsersController < Admin::BaseController
 
   def make_admin
     unless @user.update({ type: 'Admin' })
-      flash[:error] = @user.errors.full_messages
+      flash.alert = @user.errors.full_messages
     end
     redirect_to admin_users_path
   end
 
   def delete_admin
     unless @user.update({ type: 'User' })
-      flash[:error] = @user.errors.full_messages
+      flash.alert = @user.errors.full_messages
     end
     redirect_to admin_users_path
   end

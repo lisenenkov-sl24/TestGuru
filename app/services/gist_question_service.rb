@@ -4,15 +4,14 @@ class GistQuestionService
   end
 
   def call(user)
-    result = github.gists.create gist_params
-    url = result.html_url
-    Gist.create({ question: @question, url: url, user: user })
+    result = octokit_client.create_gist gist_params
+    Gist.create({ question: @question, gist_id: result.id, url: result.html_url, user: user })
   end
 
   private
 
-  def github
-    @github ||= Github.new
+  def octokit_client
+    @octokit_client ||= Octokit::Client.new
   end
 
   def gist_params

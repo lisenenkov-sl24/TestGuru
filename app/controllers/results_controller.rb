@@ -13,9 +13,14 @@ class ResultsController < ApplicationController
   def result; end
 
   def gist
-    gist_service = GistQuestionService.new(@result.current_question)
-    gist_url = gist_service.call(current_user)
-    redirect_to @result, flash: { notice: t('.gist_created'), notice_url: gist_url }
+    begin
+      gist_service = GistQuestionService.new(@result.current_question)
+      gist = gist_service.call(current_user)
+      flash[:notice_html] = t('.gist_created', url: gist.url)
+    rescue Octokit::ClientError
+      flash.alert = t('.gist_failed')
+    end
+    redirect_to @result
   end
 
   def update
