@@ -2,11 +2,21 @@
 <br />
 <table class="table">
   <tr>
-    <th><%= Test.human_attribute_name(:title) %></th>
-    <th><%= Test.human_attribute_name(:category) %></th>
-    <th><%= Test.human_attribute_name(:difficulty) %></th>
-    <th><%= Test.human_attribute_name(:author) %></th>
-    <th><%= t('.questions_count') %></th>
+    <th class="sort-by-title" data-column="0"> 
+      <%= Test.human_attribute_name(:title) %>
+    </th>
+    <th  class="sort-by-title" data-column="1">
+      <%= Test.human_attribute_name(:category) %>
+    </th>
+    <th  class="sort-by-title" data-column="2">
+      <%= Test.human_attribute_name(:difficulty) %>
+    </th>
+    <th  class="sort-by-title" data-column="3">
+      <%= Test.human_attribute_name(:author) %>
+    </th>
+    <th  class="sort-by-title" data-column="4">
+      <%= t('.questions_count') %>
+    </th>
     <th colspan="2"><%= t('actions') %></th>
   </tr>
   <%= render @tests %>
