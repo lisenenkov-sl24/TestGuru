@@ -3,6 +3,13 @@
     <h3><%= t('.passing', test: @result.test.title) %></h3>
 
     <h4><%= @result.current_question.body%></h4>
+    <%= content_tag :div, id: 'question_progress', class: 'progress', data: {numder: @result.answers, total: @question_count} do %>
+      <div class="progress-bar bg-info" role="progressbar"></div>
+    <%end%>
+    <div>
+      <%= content_tag :progress, nil, 'value' => @result.answers, max: @question_count %>
+    </div>
+
     <%= t('.question_no', numder: @result.answers + 1, total: @question_count) %>
 
     <%= form_with url: result_path(@result), local: true, method: :put, class: 'form-group' do |form| %>

@@ -3,6 +3,7 @@ en:
   show: "Show"
   edit: "Edit"
   delete: "Delete"
+  cancel: "Сancel"
   actions: "Actions"
   nav:
     question: "To question"
@@ -27,6 +28,8 @@ en:
       index:
         questions_count: "Questions count"
         create_test: "Create test"
+      form_inline:
+        submit: "OK"
       show:
         create_question: "Create question"
         all_tests: "All tests"

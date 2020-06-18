@@ -3,6 +3,7 @@ ru:
   show: "Просмотр"
   edit: "Редактировать"
   delete: "Удалить"
+  cancel: "Отмена"
   actions: "Действия"
   nav:
     question: "К вопросу"
@@ -30,6 +31,8 @@ ru:
       index:
         questions_count: "Количество вопросов"
         create_test: "Создать тест"
+      form_inline:
+        submit: "OK"
       show:
         create_question: "Создать вопрос"
         all_tests: "Все тесты"

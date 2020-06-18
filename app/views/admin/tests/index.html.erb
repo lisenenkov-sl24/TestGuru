@@ -1,5 +1,6 @@
-<h2><%= Test.model_name.human%></h2>
+<h2><%= Test.model_name.human(count: 0) %></h2>
 <br/>
+<%= show_errors(@test) %>
 <table class="table">
 <tr>
   <th class="sort-by-title" data-column="0"> 

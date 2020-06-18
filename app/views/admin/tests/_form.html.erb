@@ -2,7 +2,7 @@
   <div class="col col-md-8">
     <h3><%= test_edit_header(test)%></h3>
     <%= form_with model: [:admin, test], local: true do |form| %>
-    <% show_errors(test) %>
+    <%= show_errors(test) %>
     <div class="form-group">
       <%= form.label :title %>
       <%= form.text_field :title, size: 100, class: 'form-control' %>

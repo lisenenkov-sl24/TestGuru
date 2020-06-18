@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/, default: I18n.default_locale do
     devise_for :users,
-      path_names: { sign_in: 'login', sign_out: 'logout' },
-      controllers: { sessions: 'users/sessions' }
+               path_names: { sign_in: 'login', sign_out: 'logout' },
+               controllers: { sessions: 'users/sessions' }
 
     root 'home#index'
 
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     namespace :admin do
       root 'home#index'
       resources :tests do
+        patch :update_inline, on: :member
+
         resources :questions, shallow: true, except: [:index]
       end
       resources :users, only: %i[index] do

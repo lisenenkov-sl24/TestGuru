@@ -1,13 +1,17 @@
 module ActiverecordHelper
   def show_errors(object)
-    return unless object.errors.present?
+    return unless object && object.errors.present?
 
-    concat content_tag(:p, t('activerecord.errors.detected', count: object.errors.count))
-
-    list = object.errors.full_messages.map do |message|
-      content_tag :li, message
+    content_tag :div, class: 'resource-errors', data: { resource_id: object.id } do
+      div_content = content_tag :p, t('activerecord.errors.detected', count: object.errors.count)
+      div_content << content_tag(:ul) do
+        result = ActiveSupport::SafeBuffer.new
+        object.errors.full_messages.each do |message|
+          result << content_tag(:li, message)
+        end
+        result
+      end
     end
-    concat content_tag :ul, combine_tags(list)
   end
 
   def question_edit_header(question)
@@ -20,20 +24,5 @@ module ActiverecordHelper
     return t('activerecord.helpers.test.edit', test: test.title) if test.persisted?
 
     t('activerecord.helpers.test.new', test: test.title)
-  end
-
-  private
-
-  def combine_tags(tags)
-    combined_tags = nil
-    tags.each do |tag|
-      if combined_tags
-        combined_tags << tag
-      else
-        combined_tags = tag
-      end
-    end
-
-    combined_tags
   end
 end
