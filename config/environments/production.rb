@@ -71,7 +71,7 @@ Rails.application.configure do
     port: 587,
     user_name: ENV['SMTP_USER_NAME'],
     password: ENV['SMTP_PASSWORD'],
-    authentication: :cram_md5
+    authentication: :plain
    }
   config.action_mailer.default_url_options = { host: 'lisenenkov-testguru.herokuapp.com', protocol: 'https' }
 
