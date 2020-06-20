@@ -8,16 +8,14 @@
 
 categories = Category.create([{ title: 'Math' }, { title: 'Programming' }, { title: 'Language' }])
 
-users = User.create!([
-  { name: 'John', email: 'lisenenkovd@gmail.com', password: '123', type: 'Admin' },
-  { name: 'Dick', email: 'big@dick.us', password: '123' },
-  { name: 'Mary', email: 'mary@luisa.fr', password: '123' }
+users = Admin.create!([
+  { name: 'John', email: 'lisenenkovd@gmail.com', password: '123456', type: 'Admin' }
 ])
 
 tests = Test.create!([
-  { title: 'Arithmetic', level: 0, category: categories[0], author: users[1] },
-  { title: 'Ruby', level: 1, category: categories[1], author: users[1] },
-  { title: 'Russian', level: 2, category: categories[2], author: users[1] }
+  { title: 'Arithmetic', level: 0, category: categories[0], author: users[0] },
+  { title: 'Ruby', level: 1, category: categories[1], author: users[0] },
+  { title: 'Russian', level: 2, category: categories[2], author: users[0] }
 ])
 
 questions = Question.create!([
