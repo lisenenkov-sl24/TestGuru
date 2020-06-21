@@ -72,5 +72,5 @@ en:
       write_us: 'Write us'
       message: 'Message'
     create:
-      message_blank_error: 'Message can't be blank'
+      message_blank_error: 'Message can''t be blank'
       message_sent: 'Message sent'
