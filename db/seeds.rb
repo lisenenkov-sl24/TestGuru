@@ -19,16 +19,7 @@ tests = Test.create!([
 ])
 
 questions = Question.create!([
-  { body: '2 + 2 = ', test: tests[0] },
-  { body: '4 + 2 = ', test: tests[0] },
-  { body: '8 + 2 = ', test: tests[0] }
-])
-
-answers = Answer.create!([
-  { question: questions[0], text: '4', correct: true },
-  { question: questions[0], text: '5' },
-  { question: questions[1], text: '5' },
-  { question: questions[1], text: '6', correct: true },
-  { question: questions[2], text: '10', correct: true },
-  { question: questions[2], text: '11' }
+  { body: '2 + 2 = ', test: tests[0], answers: [Answer.new(text: '4', correct: true),  Answer.new(text: '5')] },
+  { body: '4 + 2 = ', test: tests[0], answers: [Answer.new(text: '5'), Answer.new(text: '6', correct: true)] },
+  { body: '8 + 2 = ', test: tests[0], answers: [Answer.new(text: '10', correct: true), Answer.new(text: '11')] }
 ])

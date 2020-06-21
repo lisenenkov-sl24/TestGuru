@@ -2,6 +2,7 @@ ru:
   confirm_deletion: 'Подтвердите удаление'
   show: "Просмотр"
   edit: "Редактировать"
+  send: "Отправить"
   delete: "Удалить"
   cancel: "Отмена"
   actions: "Действия"
@@ -38,14 +39,17 @@ ru:
         all_tests: "Все тесты"
     users:
       user:
-        make_admin: 'Сделать администратором'        
-        make_ordinal_user: 'Сделать пользователем'        
+        make_admin: 'Сделать администратором'
+        make_ordinal_user: 'Сделать пользователем'
+  layouts:
+    application:
+      feedback: 'Обратная связь'
   results:
     index:
       passages: "Прохождения"
     result:
       test_completed: "Тест %{test} завершен"
-      correct_answers: 
+      correct_answers:
         one: "Правильный ответ %{count} из %{total}"
         few: "Правильных ответов %{count} из %{total}"
         many: "Правильных ответов %{count} из %{total}"
@@ -68,3 +72,10 @@ ru:
       questions_count: "Количество вопросов"
   gists:
     description: "Вопрос о %{test} от TestGuru"
+  feedback:
+    new:
+      write_us: 'Напишите нам'
+      message: 'Сообщение'
+    create:
+      message_blank_error: 'Сообщение не должно быть пустым'
+      message_sent: 'Сообщение отправлено'

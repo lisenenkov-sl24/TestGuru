@@ -1,0 +1,9 @@
+<h2>
+  New feedback from 
+  <% if @user %>
+    <%= link_to  @user.name, "mailto:#{@user.email}" %>
+  <% else %>
+    unregistered user
+  <% end %>
+</h2>
+<%= @text %>

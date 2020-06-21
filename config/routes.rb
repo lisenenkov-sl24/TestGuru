@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
     root 'home#index'
 
+    resources :feedback, only: %i[new create]
+
     resources :tests, only: %i[index] do
       member do
         post 'start'

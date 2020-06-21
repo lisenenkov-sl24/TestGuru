@@ -1,0 +1,17 @@
+<div class="row justify-content-center mt-5">
+  <div class="col col-md-8">
+    <h2><%= t('.write_us') %></h2>
+
+      <%= form_with url: feedback_index_path(return: params[:return]) do |f| %>
+        <div class="form-group">
+          <%= f.label t('.message') %>
+          <%= f.text_area :message, autofocus: true, autocomplete: "name", rows: 15, class: 'form-control'  %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit t('send'), class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+
+  </div>
+</div>
