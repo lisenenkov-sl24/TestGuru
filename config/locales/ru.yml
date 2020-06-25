@@ -24,6 +24,11 @@ ru:
         sign_out: "Выйти"
     sessions:
       greeting: "Здравствуйте, %{firstname} %{lastname}!"
+  activemodel:
+    attributes:
+      feedback:
+        email: "Email"
+        message: "Сообщение"
   admin:
     questions:
       show:
@@ -75,7 +80,5 @@ ru:
   feedback:
     new:
       write_us: 'Напишите нам'
-      message: 'Сообщение'
     create:
-      message_blank_error: 'Сообщение не должно быть пустым'
       message_sent: 'Сообщение отправлено'

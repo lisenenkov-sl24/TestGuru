@@ -2,10 +2,19 @@
   <div class="col col-md-8">
     <h2><%= t('.write_us') %></h2>
 
-      <%= form_with url: feedback_index_path(return: params[:return]) do |f| %>
+      <%= form_with model: @feedback, url: feedback_index_path(return: params[:return]), local: true do |f| %>
+        <%= show_errors(@feedback) %>
+        
+        <% unless current_user %>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, autofocus: true, autocomplete: "email", class: 'form-control'  %>
+          </div>
+        <% end %>
+
         <div class="form-group">
-          <%= f.label t('.message') %>
-          <%= f.text_area :message, autofocus: true, autocomplete: "name", rows: 15, class: 'form-control'  %>
+          <%= f.label :message, Feedback.human_attribute_name(:message)  %>
+          <%= f.text_area :message, autofocus: true, rows: 15, class: 'form-control'  %>
         </div>
 
         <div class="actions">

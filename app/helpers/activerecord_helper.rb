@@ -2,7 +2,13 @@ module ActiverecordHelper
   def show_errors(object)
     return unless object && object.errors.present?
 
-    content_tag :div, class: 'resource-errors', data: { resource_id: object.id } do
+    div_options = { class: 'resource-errors' }
+    begin
+      div_options[:data] = { resource_id: object.id }
+    rescue => _
+    end
+
+    content_tag :div, div_options do
       div_content = content_tag :p, t('activerecord.errors.detected', count: object.errors.count)
       div_content << content_tag(:ul) do
         result = ActiveSupport::SafeBuffer.new

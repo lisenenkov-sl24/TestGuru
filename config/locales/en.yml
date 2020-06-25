@@ -21,6 +21,11 @@ en:
         sign_out: "Sign out"
     sessions:
       greeting: "Welcome, %{firstname} %{lastname}!"
+  activemodel:
+    attributes:
+      feedback:
+        email: "Email"
+        message: "Message"
   admin:
     questions:
       show:
@@ -70,7 +75,5 @@ en:
   feedback:
     new:
       write_us: 'Write us'
-      message: 'Message'
     create:
-      message_blank_error: 'Message can''t be blank'
       message_sent: 'Message sent'

@@ -1,9 +1,6 @@
 class FeedbackMailer < ApplicationMailer
-  def feedback(user, text)
-    @user = user
-    @text = text
-    message = mail to: Admin.pluck(:email), subject: 'Feedback'
-    message[:from] = user.email if user
-    message
+  def feedback(feedback)
+    @feedback = feedback
+    mail from: @feedback.email, to: Admin.pluck(:email), subject: 'Feedback'
   end
 end

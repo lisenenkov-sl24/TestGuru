@@ -1,18 +1,32 @@
 class FeedbackController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def new; end
+  def new
+    @feedback = Feedback.new
+  end
 
   def create
-    if params[:message].blank?
-      puts "ddd #{params[:return]}"
-      redirect_to new_feedback_path(return: params[:return]), alert: t('.message_blank_error')
+    @feedback = Feedback.new(feedback_params)
+    if current_user
+      @feedback.name = current_user.name
+      @feedback.email = current_user.email
+    else
+      @feedback.name = 'Unknown user'
+    end
+    unless @feedback.valid?
+      render :new
       return
     end
 
-    FeedbackMailer.feedback(current_user, params[:message]).deliver_now
+    FeedbackMailer.feedback(@feedback).deliver_now
 
     redirect_url = params[:return].blank? ? root_path : params[:return];
     redirect_to redirect_url, alert: t('.message_sent')
+  end
+
+  private
+
+  def feedback_params
+    params.require(:feedback).permit(:email, :message)
   end
 end

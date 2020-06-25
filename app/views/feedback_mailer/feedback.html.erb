@@ -1,9 +1,4 @@
 <h2>
-  New feedback from 
-  <% if @user %>
-    <%= link_to  @user.name, "mailto:#{@user.email}" %>
-  <% else %>
-    unregistered user
-  <% end %>
+  New feedback from <%= link_to @feedback.name, "mailto:#{@feedback.email}" %>
 </h2>
-<%= @text %>
+<%= @feedback.message %>
