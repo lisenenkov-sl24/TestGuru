@@ -3,7 +3,7 @@ class Result < ApplicationRecord
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_current_question
+  before_validation :before_validation_update_status
   after_save :after_save_check_badges
 
   scope :uncompleted, -> { where.not(current_question_id: nil) }
@@ -20,7 +20,7 @@ class Result < ApplicationRecord
 
   private
 
-  def before_validation_set_current_question
+  def before_validation_update_status
     return unless test.present?
 
     self.current_question_id =
