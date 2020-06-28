@@ -1,7 +1,7 @@
 <h3><%= t('.test_completed', test: @result.test.title) %></h3>
-<div class="<%= @result.passed? ? "passed" : "failed" %>">
+<div class="<%= @result.passed ? "passed" : "failed" %>">
 <%= t('.correct_answers', count: @result.correct_answers, total: @result.answers) %><br/>
-<%= @result.passed? ? t('.passed') : t('.failed') %>
+<%= @result.passed ? t('.passed') : t('.failed') %>
 </div>
 <br/>
 

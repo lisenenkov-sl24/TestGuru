@@ -22,6 +22,18 @@ en:
       gist:
         one: "Gist"
         zero: "Gists"
+      badge:
+        one: "Badge"
+        zero: "Badges"
+      badge_category:
+        one: "Badge (category)"
+        zero: "Badges (category)"
+      badge_difficulty:
+        one: "Badge (difficulty)"
+        zero: "Badges (difficulty)"
+      badge_try:
+        one: "Badge (try)"
+        zero: "Badges (try)"
     attributes:
       answer:
         text: "Text"
@@ -49,6 +61,13 @@ en:
         question: "Question"
         url: "URL"
         user: "User"
+      badge:
+        title: "Title"
+        image_name: "Level"
+        type: "Type"
+        parameter_category_id: "Parameter"
+        parameter_string: "Parameter"
+        parameter_number: "Parameter"
     errors:
       detected:
         one: "Found %{count} error"

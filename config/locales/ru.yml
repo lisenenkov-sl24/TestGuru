@@ -11,6 +11,7 @@ ru:
     test: "К тесту"
     tests: "К тестам"
     admin: "Admin panel"
+    badges: "К бэйджам"
   helpers:
     select:
       prompt: "Выберите значение"
@@ -46,9 +47,16 @@ ru:
       user:
         make_admin: 'Сделать администратором'
         make_ordinal_user: 'Сделать пользователем'
+    badges:
+      index:
+        create_badge: "Создать"
+      create:
+        badge_created: "Бэйдж создан"
+      update:
+        badge_updated: "Бэйдж изменен"
   layouts:
     application:
-      feedback: 'Обратная связь'
+      feedback: "Обратная связь"
   results:
     index:
       passages: "Прохождения"
@@ -82,3 +90,7 @@ ru:
       write_us: 'Напишите нам'
     create:
       message_sent: 'Сообщение отправлено'
+  badges:
+    index:
+      awarded_badges: "Полученные бэйджи"
+      not_awarded_badges: "Неполученные бэйджи"

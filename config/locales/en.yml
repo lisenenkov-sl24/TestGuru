@@ -11,6 +11,7 @@ en:
     test: "To test"
     tests: "To tests"
     admin: "Панель администрирования"
+    badges: "To badges"
   errors:
     admin_required: 'Need administrator'
     question_not_found: 'Question not found'
@@ -43,6 +44,13 @@ en:
       user:
         make_admin: 'Make admin'        
         make_ordinal_user: 'Make user'        
+    badges:
+      index:
+        create_badge: "Create"
+      create:
+        badge_created: "Badge created"
+      update:
+        badge_updated: "Badge updated"
   layouts:
     application:
       feedback: 'Feedback'
@@ -77,3 +85,7 @@ en:
       write_us: 'Write us'
     create:
       message_sent: 'Message sent'
+  badges:
+    index:
+      awarded_badges: "Awarded badges"
+      not_awarded_badges: "Remaining badges"

@@ -1,0 +1,22 @@
+<tr>
+  <td><%= badge.title %></td>
+  <td><%= image_tag image_path("badges/#{badge.image_name}.png") %></td>
+  <td><%= badge.type %></td>
+  <td>
+    <% if badge.is_a? BadgeCategory %>
+    <%= badge.parameter_category %>
+    <% end %>
+    <% if badge.is_a? BadgeDifficulty %>
+    <%= badge.parameter_string %>
+    <% end %>
+    <% if badge.is_a? BadgeTry %>
+    <%= badge.parameter_number %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to t('edit'), edit_admin_badge_path(badge), class: 'btn btn-secondary' %>
+  </td>
+  <td>
+    <%= link_to t('delete'), admin_badge_path(badge), method: :delete, data: { confirm: t('confirm_deletion') }, class: 'btn btn-secondary' %>
+  </td>
+</tr>

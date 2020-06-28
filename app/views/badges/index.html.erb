@@ -1,0 +1,18 @@
+<h2><%= t('.awarded_badges') %></h2>
+<ul class="list-group">
+<% @awarded_badges.each do |user_badge| %>
+  <li class="list-group-item">
+    <span class="badge badge-light"><%= image_tag image_path("badges/#{user_badge.badge.image_name}.png") %></span>
+    <%= user_badge.created_at.strftime '%c' %>
+  </li>
+<% end %>
+</ul>
+<h2><%= t('.not_awarded_badges') %></h2>
+<ul class="list-group">
+<% @not_awarded_badges.each do |badge| %>
+  <li class="list-group-item disabled">
+    <span class="badge badge-light"><%= image_tag image_path("badges/#{badge.image_name}.png") %></span>
+    <%= badge.title %>
+  </li>
+<% end %>
+</ul>

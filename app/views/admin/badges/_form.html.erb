@@ -1,0 +1,37 @@
+<div class="row ml-3  my-5">
+  <div class="col col-md-8">
+    <h3><%= badge.class.model_name.human(count: 1) %></h3>
+    <%= form_for [:admin, badge.becomes(Badge)], local: true do |form| %>
+    <%= show_errors(badge) %>
+     <%= form.hidden_field :type, value: badge.type %>
+    <div class="form-group">
+      <%= form.label :title %><br />
+      <%= form.text_field :title, size: 100, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :image_name %><br />
+      <%= form.text_field :image_name, size: 100, class: 'form-control' %>
+    </div>
+    <% if badge.is_a? BadgeCategory %>
+      <div class="form-group">
+        <%= form.label :parameter_category_id %><br />
+        <%= form.select :parameter_category_id, Category.all.collect { |p| [p.title, p.id] }, {include_blank: true}, class: 'form-control' %>
+      </div>
+    <% end %>
+    <% if badge.is_a? BadgeDifficulty %>
+      <div class="form-group">
+        <%= form.label :parameter_string %><br />
+        <%= form.select :parameter_string, %w[easy medium hard], class: 'form-control' %>
+      </div>
+    <% end %>
+    <% if badge.is_a? BadgeTry %>
+      <div class="form-group">
+        <%= form.label :parameter_number %><br />
+        <%= form.text_field :parameter_number, type: "number", class: 'form-control' %>
+      </div>
+    <% end %>
+    <%= form.submit(class: 'btn btn-primary') %>
+    <% end %>
+    <%= link_to t('nav.badges'), admin_badges_path %>
+  </div>
+</div>

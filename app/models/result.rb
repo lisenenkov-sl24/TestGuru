@@ -4,6 +4,7 @@ class Result < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_current_question
+  after_save :after_save_check_badges
 
   scope :uncompleted, -> { where.not(current_question_id: nil) }
 
@@ -17,10 +18,6 @@ class Result < ApplicationRecord
     current_question_id.nil? && persisted?
   end
 
-  def passed?
-    completed? && correct_answers >= 0.85 * answers
-  end
-
   private
 
   def before_validation_set_current_question
@@ -32,9 +29,21 @@ class Result < ApplicationRecord
       else
         test.questions.minimum(:id)
       end
+
+    self.passed = current_question_id.nil? ? correct_answers >= 0.85 * answers : nil
+  end
+
+  def after_save_check_badges
+    check_badges if saved_change_to_passed? && passed
   end
 
   def correct_answer?(answer_ids)
     current_question.answers.correct.ids.sort == answer_ids.sort
+  end
+
+  def check_badges
+    Badge.all.each do |badge|
+      UserBadge.create(user: user, badge: badge) if badge.check?(self)
+    end
   end
 end

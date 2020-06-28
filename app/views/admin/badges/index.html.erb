@@ -1,0 +1,30 @@
+<h2><%= Badge.model_name.human(count: 0) %></h2>
+<br />
+<%= show_errors(@badge) %>
+<table class="table">
+  <tr>
+    <th class="sort-by-title" data-column="0">
+      <%= Badge.human_attribute_name(:title) %>
+    </th>
+    <th class="sort-by-title" data-column="1">
+      <%= Badge.human_attribute_name(:image_name) %>
+    </th>
+    <th class="sort-by-title" data-column="2">
+      <%= Badge.human_attribute_name(:type) %>
+    </th>
+    <th class="sort-by-title" data-column="3">
+      <%= Badge.human_attribute_name(:parameter) %>
+    </th>
+    <th colspan="2"><%= t('actions') %></th>
+  </tr>
+  <%= render partial: 'badge', collection: Badge.all %>
+</table>
+
+<div class="dropdown">
+  <button class="button btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t('.create_badge') %></button>
+  <div class="dropdown-menu">
+    <% Badge.types.each do |badge_type| %>
+    <div><%= link_to badge_type.to_s.constantize.model_name.human(count: 1), new_admin_badge_path(type: badge_type), class: 'dropdown-item' %></div>
+    <% end %>
+  </div>
+</div>

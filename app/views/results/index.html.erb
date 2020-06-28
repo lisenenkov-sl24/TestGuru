@@ -1,7 +1,7 @@
 <h2> <%= t('.passages') %> <%= @test.title %></h2>
 <ul>
 <% @test.results.each do |result| %>
-  <% class_name = result.passed? ? "passed" : "failed" %>
+  <% class_name = result.passed ? "passed" : "failed" %>
   <li><%= link_to "#{result.created_at.strftime '%c'}", result_path(result), class: class_name %></li>
 <% end %>
 </ul>

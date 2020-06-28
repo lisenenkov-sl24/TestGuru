@@ -22,6 +22,18 @@ ru:
       gist:
         one: "Gist"
         zero: "Gists"
+      badge:
+        one: "Бэйдж"
+        zero: "Бэйджи"
+      badge_category:
+        one: "Бэйдж (категория)"
+        zero: "Бэйджи (категория)"
+      badge_difficulty:
+        one: "Бэйдж (сложность)"
+        zero: "Бэйджи (сложность)"
+      badge_try:
+        one: "Бэйдж (попытки)"
+        zero: "Бэйджи (попытки)"
     attributes:
       answer:
         text: "Текст"
@@ -49,6 +61,13 @@ ru:
         question: "Вопрос"
         url: "URL"
         user: "Пользователь"
+      badge:
+        title: "Название"
+        image_name: "Картинка"
+        type: "Тип"
+        parameter_category_id: "Параметр"
+        parameter_string: "Параметр"
+        parameter_number: "Параметр"
     errors:
       detected:
         one: "Обнаружена %{count} ошибка"
