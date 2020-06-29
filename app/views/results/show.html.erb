@@ -4,13 +4,22 @@
 
     <h4><%= @result.current_question.body%></h4>
     <%= content_tag :div, id: 'question_progress', class: 'progress', data: {numder: @result.answers, total: @question_count} do %>
-      <div class="progress-bar bg-info" role="progressbar"></div>
-    <%end%>
+    <div class="progress-bar bg-info" role="progressbar"></div>
+    <% end %>
     <div>
       <%= content_tag :progress, nil, 'value' => @result.answers, max: @question_count %>
     </div>
 
     <%= t('.question_no', numder: @result.answers + 1, total: @question_count) %>
+
+    <% if @result.test.time_limit %>
+    <%= content_tag :div, class: 'time-counter', data: { to: (@result.created_at + @result.test.time_limit.seconds).to_json } do %>
+    <span class="time-seconds">
+    <%= (@result.created_at - Time.now + @result.test.time_limit.seconds ).round %>
+    </span>
+    <%= t('.seconds_remaining') %>
+    <% end %>
+    <% end %>
 
     <%= form_with url: result_path(@result), local: true, method: :put, class: 'form-group' do |form| %>
     <ol>
@@ -25,7 +34,7 @@
       </li>
       <% end %>
     </ol>
-    
+
     <div><%= link_to t('.gist'), gist_result_path(@result), method: :post %></div>
 
     <%= form.submit (@result.answers + 1 == @question_count) ? t('.end') : t('.next'), class: 'btn btn-primary' %>
