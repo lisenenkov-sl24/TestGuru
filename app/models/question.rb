@@ -3,8 +3,8 @@ class Question < ApplicationRecord
 
   has_many :answers, dependent: :destroy
   has_many :gists, dependent: :destroy
-  
-  accepts_nested_attributes_for :answers, reject_if: :reject_qiestion, allow_destroy: true
+
+  accepts_nested_attributes_for :answers, reject_if: :reject_question, allow_destroy: true
 
   validates :body, presence: true
   validate :check_answers_count
@@ -17,12 +17,12 @@ class Question < ApplicationRecord
     errors.add(:answers, 'count must be between 1 and 4')
   end
 
-  def reject_qiestion(attributes)
+  def reject_question(attributes)
     return false unless attributes['text'].blank?
 
     return true if attributes['id'].blank?
 
-    attributes.merge!({:_destroy => 1})
+    attributes.merge!({ destroy: 1 })
     false
   end
 end

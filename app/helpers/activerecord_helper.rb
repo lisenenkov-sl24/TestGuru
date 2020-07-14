@@ -31,4 +31,10 @@ module ActiverecordHelper
 
     t('activerecord.helpers.test.new', test: test.title)
   end
+
+  def time_limit(seconds)
+    return t('activerecord.helpers.unlimited') if seconds == 0
+
+    distance_of_time(seconds)
+  end
 end

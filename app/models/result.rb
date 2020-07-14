@@ -9,8 +9,13 @@ class Result < ApplicationRecord
   scope :uncompleted, -> { where.not(current_question_id: nil) }
 
   def accept!(answer_ids)
-    self.correct_answers += 1 if correct_answer?(answer_ids)
-    self.answers += 1
+    if test.time_limit > 0 && test.time_limit.seconds.ago > created_at
+      self.current_question_id = nil
+      self.answers = test.questions.count
+    else
+      self.correct_answers += 1 if correct_answer?(answer_ids)
+      self.answers += 1
+    end
     save!
   end
 

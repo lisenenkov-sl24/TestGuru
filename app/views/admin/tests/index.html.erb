@@ -15,7 +15,10 @@
   <th  class="sort-by-title" data-column="3">
     <%= Test.human_attribute_name(:author) %>
   </th>
-  <th  class="sort-by-title" data-column="4">
+  <th>
+    <%= Test.human_attribute_name(:time_limit) %>
+  </th>
+  <th  class="sort-by-title" data-column="5">
     <%= t('.questions_count') %>
   </th>
   <th colspan="3"><%= t('actions') %></th>

@@ -38,6 +38,8 @@ gem 'jquery-rails', '~> 4.4.0'
 
 gem 'octokit', '~> 4.0'
 
+gem 'dotiw'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
